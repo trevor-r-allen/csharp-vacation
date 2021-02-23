@@ -30,11 +30,11 @@ namespace csharp_vacation.Controllers
     }
 
     [HttpGet("{id}")]
-    public ActionResult<Cruise> GetById()
+    public ActionResult<Cruise> GetById(int id)
     {
       try
       {
-        return Ok(_cruisesService.GetById());
+        return Ok(_cruisesService.GetById(id));
       }
       catch (System.Exception err)
       {
@@ -43,11 +43,11 @@ namespace csharp_vacation.Controllers
     }
 
     [HttpPost]
-    public ActionResult<Cruise> Create()
+    public ActionResult<Cruise> Create([FromBody] Cruise newCruise)
     {
       try
       {
-        return Ok(_cruisesService.Create());
+        return Ok(_cruisesService.Create(newCruise));
       }
       catch (System.Exception err)
       {
@@ -56,11 +56,11 @@ namespace csharp_vacation.Controllers
     }
 
     [HttpPut("{id}")]
-    public ActionResult<Cruise> Edit()
+    public ActionResult<Cruise> Edit(int id, [FromBody] Cruise editedCruise)
     {
       try
       {
-        return Ok(_cruisesService.Edit());
+        return Ok(_cruisesService.Edit(id, editedCruise));
       }
       catch (System.Exception err)
       {
@@ -69,11 +69,11 @@ namespace csharp_vacation.Controllers
     }
 
     [HttpDelete("{id}")]
-    public ActionResult<Cruise> Delete()
+    public ActionResult<Cruise> Delete(int id)
     {
       try
       {
-        return Ok(_cruisesService.Delete());
+        return Ok(_cruisesService.Delete(id));
       }
       catch (System.Exception err)
       {
